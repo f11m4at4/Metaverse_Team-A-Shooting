@@ -4,14 +4,23 @@ using UnityEngine;
 
 // 일정 시간에 한번씩 적을 만들고 싶다.
 // 필요속성 : 생성시간, 경과시간, 적 공장
+
+// EnemyGOD 객체를 Static 영역에 딱 하나만 두고 싶다.
+
 public class EnemyGOD : MonoBehaviour
 {
+    //public static EnemyGOD Instance;
+    
     // 필요속성 : 생성시간, 경과시간
     public float createTime = 2;
-    float currentTime;
+    float currentTime=0;
     //적 공장
     public GameObject enemyFactory;
 
+    private void Awake()
+    {
+        //Instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {

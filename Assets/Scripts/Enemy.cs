@@ -22,10 +22,26 @@ public class Enemy : MonoBehaviour
         //if(player != null)
         if (player)
         {
-            // 타겟 방향으로 설정하기
             target = player.transform;
-            dir = target.position - transform.position;
-            dir.Normalize();
+            //70 % 확률로 아래로 방향을 잡고
+            // 1. 확률을 구해야 한다.
+            int randomic = Random.Range(0, 10);
+            
+            // 타겟 방향으로 설정하기
+            // 2. 확률이 70% 에 속했으니까
+            if (randomic < 7) 
+            {
+                // 3. 방향을 아래로 설정하고 싶다.
+                dir = Vector3.down;
+            }
+            //그렇지않으면 
+            else
+            {
+                //타겟쪽으로
+                dir = target.position - transform.position;
+                dir.Normalize();
+            }
+            
         }
         // 그렇지 않다면
         else

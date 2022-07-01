@@ -4,14 +4,21 @@ using UnityEngine;
 
 //사용자가 발사버튼을 누르면 총알을 발사하고 싶다.
 // 필요속성 : 총알공장, 총구(자기자신)
+// 탄창에 총알을 미리 생성해 놓고 발사하고 싶다.
+// 필요속성 : 탄창 -> 콜렉션(배열, 리스트)
 public class PlayerFire : MonoBehaviour
 {
+    
     // 필요속성 : 총알공장
     public GameObject bulletFactory;
     // Start is called before the first frame update
     void Start()
     {
-        
+        // for(초깃값설정;조건;증감)
+        for(int i=0;i<100;i++)
+        {
+            print(i);
+        }
     }
 
     // Update is called once per frame
