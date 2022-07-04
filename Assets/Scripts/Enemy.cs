@@ -65,8 +65,24 @@ public class Enemy : MonoBehaviour
     // 다른 물체와 부딪혔을 때 갸도 죽고 나도 죽고... 
     private void OnCollisionEnter(Collision collision)
     {
-        // 갸도 죽고
-        Destroy(collision.gameObject);
+        // 만약 부딪힌 녀석이 Bullet 라면
+        if (collision.gameObject.name.Contains("Bullet"))
+        {
+            // 탄창에 집어 넣고싶다.
+            // PlayerFire 에 있는 탄창에 총알을 넣어주어야 한다.
+            // 1. Player 게임오브젝트가 있어야한다.
+            // 2. PlayerFire 가 필요하다.
+            PlayerFire player = target.GetComponent<PlayerFire>();
+            // 3. 탄창에 총알을 넣어주기
+            player.bulletPool.Add(collision.gameObject);
+            collision.gameObject.SetActive(false);
+        }
+        // 그렇지 않으면
+        else
+        {
+            // 없애자
+            Destroy(collision.gameObject);
+        }
         // 나도 죽고
         Destroy(gameObject);
     }
