@@ -6,6 +6,9 @@ using UnityEngine;
 // 필요속성 : 이동속도
 // 타겟를 따라다니기
 // 필요속성 : 타겟
+
+// 죽을 때 폭발효과 발생시키고 싶다.
+// 필요속성 : 폭발효과 공장
 public class Enemy : MonoBehaviour
 {
     // 필요속성 : 이동속도
@@ -13,10 +16,13 @@ public class Enemy : MonoBehaviour
     // 필요속성 : 타겟
     public Transform target;
     Vector3 dir;
-
+    // 필요속성 : 폭발효과 공장
+    GameObject explosionFactory;
     // Start is called before the first frame update
     void Start()
     {
+        // 동적으로 폭발효과를 로딩하고 싶다.
+        explosionFactory = (GameObject)Resources.Load("Prefabs/Explosion");
         GameObject player = GameObject.Find("Player");
         // 만약 타겟이 있다면
         //if(player != null)
@@ -65,6 +71,10 @@ public class Enemy : MonoBehaviour
     // 다른 물체와 부딪혔을 때 갸도 죽고 나도 죽고... 
     private void OnCollisionEnter(Collision collision)
     {
+        // 폭발효과 발생시키기
+        GameObject explosion = Instantiate(explosionFactory);
+        explosion.transform.position = transform.position;
+
         // 만약 부딪힌 녀석이 Bullet 라면
         if (collision.gameObject.name.Contains("Bullet"))
         {
