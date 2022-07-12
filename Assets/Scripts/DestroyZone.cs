@@ -8,7 +8,9 @@ public class DestroyZone : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // ¸¸¾à ºÎµúÈù ³à¼®ÀÌ Bullet ¶ó¸é
-        if (other.gameObject.name.Contains("Bullet"))
+        // Layer ·Î º¯°æ
+        //if (other.gameObject.name.Contains("Bullet"))
+        if(other.gameObject.layer == LayerMask.NameToLayer("PlayerBullet"))
         {
             GameObject target = GameObject.Find("Player");
             PlayerFire player = target.GetComponent<PlayerFire>();

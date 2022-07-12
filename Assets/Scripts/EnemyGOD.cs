@@ -16,6 +16,7 @@ public class EnemyGOD : MonoBehaviour
     float currentTime=0;
     //적 공장
     public GameObject enemyFactory;
+    public GameObject enemyFactoryB;
 
     private void Awake()
     {
@@ -39,7 +40,17 @@ public class EnemyGOD : MonoBehaviour
         if (currentTime > createTime)
         {
             // 3. 적을 만들고 싶다.
-            GameObject enemy = Instantiate(enemyFactory);
+            //EnemyGOD 가 50 % 의 확률
+            int rand = Random.Range(0, 10);
+            GameObject enemy = null;
+            if (rand < 5)
+            { 
+                enemy = Instantiate(enemyFactory);
+            }
+            else
+            {
+                enemy = Instantiate(enemyFactoryB);
+            }
             enemy.transform.position = transform.position;
             currentTime = 0;
         }

@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createTime: 4.39
   enemyFactory: {fileID: 7138602606339386620, guid: d1433bc21439c26438e2f723554281a4, type: 3}
+  enemyFactoryB: {fileID: 6161816494397760540, guid: 8e1d0a440fc138f42b55a6e531eb4a27, type: 3}
 --- !u!4 &252951011
 Transform:
   m_ObjectHideFlags: 0
@@ -200,6 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createTime: 2.9
   enemyFactory: {fileID: 7138602606339386620, guid: d1433bc21439c26438e2f723554281a4, type: 3}
+  enemyFactoryB: {fileID: 6161816494397760540, guid: 8e1d0a440fc138f42b55a6e531eb4a27, type: 3}
 --- !u!4 &357139470
 Transform:
   m_ObjectHideFlags: 0
@@ -330,6 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createTime: 2
   enemyFactory: {fileID: 7138602606339386620, guid: d1433bc21439c26438e2f723554281a4, type: 3}
+  enemyFactoryB: {fileID: 6161816494397760540, guid: 8e1d0a440fc138f42b55a6e531eb4a27, type: 3}
 --- !u!4 &408832826
 Transform:
   m_ObjectHideFlags: 0
@@ -929,6 +932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createTime: 1.7
   enemyFactory: {fileID: 7138602606339386620, guid: d1433bc21439c26438e2f723554281a4, type: 3}
+  enemyFactoryB: {fileID: 6161816494397760540, guid: 8e1d0a440fc138f42b55a6e531eb4a27, type: 3}
 --- !u!4 &825836138
 Transform:
   m_ObjectHideFlags: 0
@@ -1102,6 +1106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createTime: 2.32
   enemyFactory: {fileID: 7138602606339386620, guid: d1433bc21439c26438e2f723554281a4, type: 3}
+  enemyFactoryB: {fileID: 6161816494397760540, guid: 8e1d0a440fc138f42b55a6e531eb4a27, type: 3}
 --- !u!4 &953078382
 Transform:
   m_ObjectHideFlags: 0
@@ -1497,6 +1502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createTime: 3.17
   enemyFactory: {fileID: 7138602606339386620, guid: d1433bc21439c26438e2f723554281a4, type: 3}
+  enemyFactoryB: {fileID: 6161816494397760540, guid: 8e1d0a440fc138f42b55a6e531eb4a27, type: 3}
 --- !u!4 &1047685892
 Transform:
   m_ObjectHideFlags: 0
@@ -1543,6 +1549,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createTime: 3.27
   enemyFactory: {fileID: 7138602606339386620, guid: d1433bc21439c26438e2f723554281a4, type: 3}
+  enemyFactoryB: {fileID: 6161816494397760540, guid: 8e1d0a440fc138f42b55a6e531eb4a27, type: 3}
 --- !u!4 &1479407857
 Transform:
   m_ObjectHideFlags: 0
