@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
     {
         // 계속 위로 이동하고 싶다.
         // 2. 방향이 필요
-        Vector3 dir = Vector3.up;
+        Vector3 dir = transform.up;
         dir.Normalize();
         // 3. 이동하고 싶다.
         // P = P0 + vt

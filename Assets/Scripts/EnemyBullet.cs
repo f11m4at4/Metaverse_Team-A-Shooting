@@ -25,11 +25,32 @@ public class EnemyBullet : MonoBehaviour
     // 다른 물체와 부딪혔을 때 갸도 죽고 나도 죽고... 
     private void OnCollisionEnter(Collision collision)
     {
+        EnemyBullet.CollisionEnemy(explosionFactory, transform, collision, gameObject);
+    }
+
+    public static void CollisionEnemy(GameObject explosionFactory, Transform transform, Collision collision, GameObject gameObject)
+    {
         // 폭발효과 발생시키기
         GameObject explosion = Instantiate(explosionFactory);
         explosion.transform.position = transform.position;
 
-        Destroy(collision.gameObject);
+        // 만약 부딪힌 녀석이 Bullet 라면
+        if (collision.gameObject.name.Contains("Bullet"))
+        {
+            GameObject target = GameObject.Find("Player");
+            if (target)
+            {
+                PlayerFire player = target.GetComponent<PlayerFire>();
+                // 3. 탄창에 총알을 넣어주기
+                player.bulletPool.Add(collision.gameObject);
+                collision.gameObject.SetActive(false);
+            }
+        }
+        // 그렇지 않으면
+        else
+        {
+            PlayerHealth.Instance.HP--;
+        }
         Destroy(gameObject);
     }
 }

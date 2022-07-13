@@ -18,6 +18,7 @@ public class PlayerFire : MonoBehaviour
     // 탄창에 들어갈 총알 개수
     public int bulletPoolSize = 10;
 
+    public Transform firePosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,7 +54,8 @@ public class PlayerFire : MonoBehaviour
                 GameObject bullet = bulletPool[0];
                 bullet.SetActive(true);
                 // 3. 총알을 발사하고 싶다.(위치)
-                bullet.transform.position = transform.position;
+                bullet.transform.position = firePosition.position;
+                bullet.transform.up = firePosition.up;
                 // 탄창에서 총알 제거하기 
                 bulletPool.RemoveAt(0);
             }

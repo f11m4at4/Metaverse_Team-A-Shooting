@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Text;
 
 // 사용자 입력에 따라 상하좌우로 이동하고 싶다.
 // 필요속성 : 이동속도
