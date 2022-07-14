@@ -8,7 +8,7 @@ using System.Text;
 public class PlayerMove : MonoBehaviour
 {
     // 필요속성 : 이동속도
-    float speed = 5;
+    public float speed = 5;
     // Start is called before the first frame update
     void Start()
     {

@@ -85,25 +85,33 @@ public class Boss : MonoBehaviour
         {
             // 1. 총알이 필요하다.
             GameObject bullet = Instantiate(bulletFactory);
+            float theta = i * deltaAngle;
+            float r = 1;
+            float x = r * Mathf.Cos(Mathf.Deg2Rad * theta);
+            float y = r * Mathf.Sin(Mathf.Deg2Rad * theta);
             // 2. 발사할 방향을 정하고 싶다.
             bullet.transform.eulerAngles = new Vector3(0, 0, deltaAngle * i);
+            //bullet.transform.position = transform.position + bullet.transform.up * r;
             //dir = Quaternion.Euler(0, 0, deltaAngle) * dir;
             //bullet.transform.rotation = Quaternion.Euler(0, 0, deltaAngle * i);
             //bullet.transform.Rotate(0, 0, deltaAngle * i);
             // 3. 총알 하나 발사하고 싶다.
+            //bullet.transform.position = new Vector3(x, y, 0);
             bullet.transform.position = transform.position;
         }
     }
 
+    public float fspeed = 5;
+    public float freq = 10;
     // Update is called once per frame
     void Update()
     {
-        // 타겟를 따라다니기
-        // P = P0 + vt
-        // 1. 방향이필요
-        // direction = target - me
-        // 2. 이동하고싶다.
-        //transform.position += dir * speed * Time.deltaTime;
+        // 좌우로 왔다 갔다 하고 싶다.
+        // 1. 방향이 필요하다.
+        float x = fspeed * Mathf.Sin(Time.time * freq);
+        Vector3 dir = new Vector3(0, x, 0);
+        // 2. 이동하고 싶다.
+        transform.position += dir * Time.deltaTime;
     }
 
     // 다른 물체와 부딪혔을 때 갸도 죽고 나도 죽고... 
