@@ -28,7 +28,15 @@ public class Boss : MonoBehaviour
         SetDirection();
 
         // ÃÑ¾Ë ½î±â
-        ShootBullet();
+        //ShootBullet();
+
+        InvokeRepeating("ShootTando", 2, 0);
+    }
+
+    void ShootTando()
+    {
+        GameObject bullet = Instantiate(bulletFactory);
+        bullet.transform.position = transform.position;
     }
 
     void SetDirection()
@@ -111,7 +119,7 @@ public class Boss : MonoBehaviour
         float x = fspeed * Mathf.Sin(Time.time * freq);
         Vector3 dir = new Vector3(0, x, 0);
         // 2. ÀÌµ¿ÇÏ°í ½Í´Ù.
-        transform.position += dir * Time.deltaTime;
+        //transform.position += dir * Time.deltaTime;
     }
 
     // ´Ù¸¥ ¹°Ã¼¿Í ºÎµúÇûÀ» ¶§ °¼µµ Á×°í ³ªµµ Á×°í... 

@@ -111,8 +111,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f10bceb3d2c4749b009fb731c779c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5.6
+  speed: 5
   explosionFactory: {fileID: 100018, guid: 4aceae9fd214e294b989a1fb0f2a111f, type: 3}
+  angle: 1.5
+  rotateTime: 0.02
 --- !u!54 &-7910028071437881150
 Rigidbody:
   m_ObjectHideFlags: 0
