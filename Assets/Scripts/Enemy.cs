@@ -72,5 +72,7 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         EnemyBullet.CollisionEnemy(explosionFactory, transform, collision, gameObject);
+        // 점수 올리기
+        ScoreManager.Instance.CurScore++;
     }
 }
