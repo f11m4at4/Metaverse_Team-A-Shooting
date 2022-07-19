@@ -60,6 +60,11 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.m_state != GameManager.GameState.Playing)
+        {
+            // -> 처리하지 못하게 하자.
+            return;
+        }
         // 타겟를 따라다니기
         // P = P0 + vt
         // 1. 방향이필요

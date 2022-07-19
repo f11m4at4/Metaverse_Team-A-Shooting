@@ -40,6 +40,11 @@ public class PlayerFire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.m_state != GameManager.GameState.Playing)
+        {
+            // -> 처리하지 못하게 하자.
+            return;
+        }
         //사용자가 발사버튼을 누르면 총알을 발사하고 싶다.
         // 1. 사용자가 발사버튼을 눌렀으니까
         // -> 만약 사용자가 발사버튼을 눌렀다면

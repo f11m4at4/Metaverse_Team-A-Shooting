@@ -31,6 +31,12 @@ public class EnemyGOD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.m_state != GameManager.GameState.Playing)
+        {
+            // -> 처리하지 못하게 하자.
+            return;
+        }
+
         // 일정 시간에 한번씩 적을 만들고 싶다.
         // 1. 시간이 흘렀으니까
         // 경과시간을 누적하고 싶다.
