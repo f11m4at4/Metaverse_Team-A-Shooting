@@ -31,8 +31,8 @@ public class PlayerMove : MonoBehaviour
 
         // 사용자 입력에 따라 상하좌우로 이동하고 싶다.
         // 1. 사용자의 입력에 따라
-        float h = Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        float h = HOJoystick.GetAxis("Horizontal");
+        float v = HOJoystick.GetAxis("Vertical");
         // 2. 방향이 필요
         Vector3 dir = Vector3.right * h + Vector3.up * v;
         dir.Normalize();
