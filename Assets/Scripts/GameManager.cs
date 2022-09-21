@@ -2,10 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 // 게임의 진행 상태를 관리하고 싶다.
 // 필요속성 : 현재상태, Ready, Start, Playing, GameOver
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourPun
 {
     // 필요속성 : 현재상태, Ready, Start, Playing, GameOver
     //[System.NonSerialized]
@@ -21,6 +21,13 @@ public class GameManager : MonoBehaviour
     public GameState m_state = GameState.Ready;
 
     public static GameManager Instance;
+
+
+    public Dictionary<int, PhotonView> dicPlayers = new Dictionary<int, PhotonView>();
+    public List<PhotonView> listPlayers = new List<PhotonView>();
+
+    public PhotonView myPhotnView;
+
     private void Awake()
     {
         Instance = this;
@@ -28,7 +35,26 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        PhotonNetwork.SendRate = 60;
+        PhotonNetwork.SerializationRate = 60;
+    }
+
+    public void CreateEmptyPlayer()
+    {
+        GameObject go = PhotonNetwork.Instantiate("EmptyPlayer", Vector3.zero, Quaternion.identity);
+        myPhotnView = go.GetComponent<PhotonView>();
+    }
+
+    public void AddPlayer(PhotonView pv)
+    {
+        dicPlayers[pv.ViewID] = pv;
+        listPlayers.Add(pv);
+
+        if(PhotonNetwork.IsMasterClient)
+        {
+            GameObject go = PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
+            go.GetComponent<PlayerMove>().SetOwner(pv.ViewID);
+        }
     }
 
     // Update is called once per frame
@@ -92,4 +118,6 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    
 }

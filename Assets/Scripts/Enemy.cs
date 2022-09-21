@@ -76,8 +76,12 @@ public class Enemy : MonoBehaviour
     // 다른 물체와 부딪혔을 때 갸도 죽고 나도 죽고... 
     private void OnCollisionEnter(Collision collision)
     {
-        EnemyBullet.CollisionEnemy(explosionFactory, transform, collision, gameObject);
-        // 점수 올리기
-        ScoreManager.Instance.CurScore++;
+        // 폭발효과 발생시키기
+        //GameObject explosion = Instantiate(explosionFactory);
+        //explosion.transform.position = transform.position;
+
+        //EnemyBullet.CollisionEnemy(explosionFactory, transform, collision, gameObject);
+        //// 점수 올리기
+        //ScoreManager.Instance.CurScore++;
     }
 }

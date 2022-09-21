@@ -16,7 +16,7 @@ public class HOJoystick
 #endif
         if(bJoystick == false)
         {
-            return Input.GetAxis(axis);
+            return Input.GetAxisRaw(axis);
         }
         if(axis == "Horizontal")
         {
